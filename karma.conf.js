@@ -15,6 +15,10 @@ module.exports = function (config) {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    files: [  // these added to get rid of error TS2503: Cannot find namespace 'google'.
+      'https://maps.googleapis.com/maps/api/js?sensor=false', //<--this one https://github.com/ScottieR/angular-google-maps-mock
+      'mocks/maps.googleapis.com-maps-api.js', //<--and this one https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p
+    ],
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/angular-gmap'),
       reports: ['html', 'lcovonly', 'text-summary'],
